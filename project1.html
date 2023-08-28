@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sign Up</title>
+  <script src="https://kit.fontawesome.com/50fb36202d.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="demo.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url(register_page_img.jpg);
+      background-repeat: no-repeat;
+      background-position: cover 100%;
+      background-size: cover;
+      position: relative;
+      background-color: rgb(190, 255, 255);
+      
+    }
+
+    .container {
+      width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #f7f7f7;
+    }
+
+    h1 {
+      text-align: center;
+      color: red;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      /* opacity: 0.5; */
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 75%;
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Register</h1>
+    <form id="signup-form">
+      <div class="form-group">
+        <!-- <label for="username">Username:</label> -->
+        <i class="fa-solid fa-user fa-beat fa-xl"></i>
+        <input type="text" export id="username" placeholder="Username" required>
+      </div>
+      <div class="form-group">
+        <!-- <label for="email">Email:</label> -->
+        <i class="fa-solid fa-envelope fa-bounce fa-xl"></i>
+        <input type="email" export id="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <!-- <label for="password">Password:</label> -->
+        <i class="fa-solid fa-lock fa-shake fa-xl"></i>
+        <input type="password" export id="password" placeholder="Password" required>
+      </div>
+      <p>If Already Registered
+        <a href="project2.html">
+          <br><br>Go to Login
+        </a>
+      </p>
+      <div class="form-group">
+        <button type="submit">Sign Up</button>
+      </div>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    document.getElementById('signup-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var username = document.getElementById('username').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      var data = {
+        username: username,
+        email: email,
+        password: password
+
+      };
+
+      localStorage.getItem('data')
+
+      alert('Sign up successful!');
+
+      //  var storedArray = localStorage.getItem('Array');
+      //  var array = globalThis()
+      //  var array1 = storedArray ? JSON.parse(storedArray) : [];
+
+      // var storedArray = localStorage.getItem('array');
+
+      // array1 = storedArray ? JSON.parse(storedArray) : [];
+
+      var Gmail = document.getElementById('email').value;
+      var Pwd = document.getElementById('password').value;
+
+      function append(gmail, pwd) {
+        array.push(gmail)
+        array.push(pwd);
+        localStorage.setItem('array', JSON.stringify(array));
+      }
+      console.log(array)
+
+      append(Gmail, Pwd)
+      // console.log(array)
+      // delete(array);
+      window.location.href = 'project2.html'
+      
+
+      //       // window.location.href = 'home.html';
+    });
+  </script>
+</body>
+
+</html>

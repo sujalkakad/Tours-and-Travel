@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://kit.fontawesome.com/50fb36202d.js" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="demo.js">
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url(register_page_img.jpg);
+      background-repeat: no-repeat;
+      background-position: cover 100%;
+      background-size: cover;
+      position: relative;
+      background-color: rgb(190, 255, 255);
+    }
+
+    /* Center the login form */
+    form {
+      width: 300px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Style the form fields */
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+
+    }
+
+    /* Style the submit button */
+    input[type="submit"] {
+      width: 100%;
+      background-color: #43b146;
+      color: white;
+      padding: 12px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Style the signup checkbox */
+    #signup-label {
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      margin-right: 10px;
+    }
+
+    #signup {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    /* Style the error message */
+    #error {
+      color: red;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <h1>Login</h1>
+    <!-- <i class="fa-solid fa-envelope"></i> -->
+    <input type="text" import id="username" placeholder="Email" required>
+    <!-- <i class="fa-solid fa-lock"></i> -->
+    <input type="password" import id="password" placeholder="Password" required>
+    <!-- <label for="signup" id="signup-label">Sign up</label>
+      <input type="checkbox" id="signup"> -->
+    <p>If Not Registered
+      <a href="project1.html">
+        <br><br> Register
+      </a>
+    </p>
+    <input type="submit" value="Submit">
+    <div id="error"></div>
+  </form>
+
+
+  <script type="text/javascript">
+
+
+    const loginForm = document.querySelector('form');
+    loginForm.addEventListener('submit', handleLogin);
+
+    function handleLogin(event) {
+
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      console.log(username)
+      console.log(password)
+
+
+
+      localStorage.getItem('username', username)
+      localStorage.getItem('password', password)
+
+
+      console.log(array);
+
+      var getEmail = document.getElementById('username').value;
+
+      //For Email
+      function search(email) {
+        var found = false;
+        for (var i = 0; i < array.length; i++) {
+          console.log(email + "Before if")
+          if (array[i] == email) {
+            console.log(array[i] + "---" + email)
+            return array[i];
+            break;
+          }
+        }
+        console.log(email)
+        var found = false
+        return found;
+      }
+
+
+      var searchEmail = search(getEmail);
+      console.log(getEmail)
+      console.log(searchEmail)
+
+      if (searchEmail) {
+        console.log(getEmail + ' is found in the Database.');
+      } else {
+        alert(getEmail + ' is not found in the Database.');
+      }
+
+      //For Password
+      var getPassword = document.getElementById('password').value;
+
+      function searchPass(pwd) {
+        var found = false;
+        for (var i = 0; i < array.length; i++) {
+          console.log(pwd + "Before if")
+          if (array[i] == pwd) {
+            console.log(array[i] + "---" + pwd)
+            return array[i];
+            break;
+          }
+        }
+        console.log(pwd)
+        var found = false
+        return found;
+      }
+
+
+      var searchPassword = searchPass(getPassword);
+      console.log(getPassword)
+      console.log(searchPassword)
+
+      if (searchPassword) {
+        console.log(getPassword + ' is found in the Database.');
+      } else {
+        alert(getPassword + ' is not found in the Database.');
+      }
+
+      console.log(password)
+
+      console.log(username)
+
+      if (searchEmail === username && searchPassword === password) {
+
+
+        localStorage.setItem('username', username)
+        localStorage.setItem('password', password)
+
+        alert('Login Successful')
+        window.location.href = 'index.html';
+
+      }
+
+      else {
+        alert('Invalid username or password');
+      }
+
+
+
+
+    }
+  </script>
+</body>
+
+</html>
